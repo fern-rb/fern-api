@@ -13,7 +13,7 @@ task :build do
 end
 
 task release: :build do
-  system "gem push fern-api-#{Fern::Api::VERSION}"
+  system "gem push pkg/fern-api-#{Fern::Api::VERSION}"
 end
 
 task default: :test
