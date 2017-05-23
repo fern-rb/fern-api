@@ -9,11 +9,11 @@ Rake::TestTask.new(:test) do |t|
 end
 
 task :build do
-  system 'gem build fern-api.gemspec'
+  `gem build fern-api.gemspec`
 end
 
 task release: :build do
-  system "gem push pkg/fern-api-#{Fern::Api::VERSION}"
+  `gem push pkg/fern-api-#{Fern::Api::VERSION}.gem`
 end
 
 task default: :test
