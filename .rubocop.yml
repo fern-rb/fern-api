@@ -1,0 +1,23 @@
+AllCops:
+  DisplayCopNames: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/MultilineMethodCallIndentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Style/AccessorMethodName:
+  Enabled: false
