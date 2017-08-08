@@ -2,28 +2,24 @@ require 'fern/api/endpoint'
 
 module Fern
   module Api
+    VERBS = %i[delete connect get head options patch post put trace].freeze
+
     def self.included(receiver)
+      receiver.class_eval { class_attribute :fern }
+      receiver.fern = {}
+
       receiver.extend(ClassMethods)
     end
 
     module ClassMethods
-      VERBS = %i[delete get patch post put].freeze
-
       def endpoint(name, &block)
+        fern[name] = {}
         Endpoint.new(self, name: name, &block)
       end
 
-      def method_missing(method_name, *args, &block)
-        if VERBS.include?(method_name)
-          endpoint(args[0], &block)
-        else
-          super
-        end
-      end
-
-      def respond_to_missing?(method_name, include_private = false)
-        VERBS.include?(method_name) || super
-      end
+      VERBS.each { |verb| alias_method verb, :endpoint }
     end
   end
 end
+
+ActiveSupport.on_load(:action_controller) { include Fern::Api }
