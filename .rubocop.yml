@@ -21,3 +21,6 @@ Metrics/MethodLength:
 
 Style/AccessorMethodName:
   Enabled: false
+
+Style/FileName:
+  Enabled: false
