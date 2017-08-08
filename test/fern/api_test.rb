@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Controller
+class Controller < ActionController::API
   include Fern::Api
 
   def self.before_action; end

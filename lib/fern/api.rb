@@ -2,16 +2,16 @@ require 'fern/api/endpoint'
 
 module Fern
   module Api
+    extend ActiveSupport::Concern
+
     VERBS = %i[delete connect get head options patch post put trace].freeze
 
-    def self.included(receiver)
-      receiver.class_eval { class_attribute :fern }
-      receiver.fern = {}
-
-      receiver.extend(ClassMethods)
+    included do
+      class_eval { class_attribute :fern }
+      self.fern = {}
     end
 
-    module ClassMethods
+    class_methods do
       def endpoint(name, &block)
         fern[name] = {}
         Endpoint.new(self, name: name, &block)
