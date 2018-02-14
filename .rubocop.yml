@@ -1,26 +1,26 @@
 AllCops:
   DisplayCopNames: true
 
-Style/Documentation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Style/AlignParameters:
+Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
 
-Metrics/BlockLength:
+Layout/MultilineMethodCallIndentation:
   Enabled: false
 
-Style/MultilineMethodCallIndentation:
+Metrics/BlockLength:
   Enabled: false
 
 Metrics/MethodLength:
   Enabled: false
 
-Style/AccessorMethodName:
+Naming/AccessorMethodName:
   Enabled: false
 
-Style/FileName:
+Naming/FileName:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
   Enabled: false
