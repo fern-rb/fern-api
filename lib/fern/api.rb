@@ -4,11 +4,14 @@ module Fern
   module Api
     extend ActiveSupport::Concern
 
-    VERBS = %i[delete connect get head options patch post put trace].freeze
+    VERBS = %i[get head post patch put delete options].freeze
 
     included do
       class_eval { class_attribute :fern }
       self.fern = {}
+      def present(obj)
+        render json: obj
+      end
     end
 
     class_methods do

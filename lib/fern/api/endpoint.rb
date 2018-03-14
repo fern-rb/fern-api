@@ -11,6 +11,17 @@ module Fern
       def request(&block)
         @controller.send(:define_method, @name, &block)
       end
+
+      def form(key = nil, klass)
+        @controller.fern[@name][:form] = {
+          key: key,
+          klass: klass
+        }
+      end
+
+      def presenter(klass)
+        @controller.fern[@name][:presenter] = klass
+      end
     end
   end
 end
