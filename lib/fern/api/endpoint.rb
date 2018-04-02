@@ -12,7 +12,7 @@ module Fern
         @controller.send(:define_method, @name, &block)
       end
 
-      def form(key = nil, klass)
+      def form(key = nil, klass) # rubocop:disable Style/OptionalArguments
         @controller.fern[@name][:form] = {
           key: key,
           klass: klass

@@ -8,7 +8,6 @@ module Fern
 
     included do
       class_eval { class_attribute :fern }
-      self.fern = {}
       def present(obj)
         render json: obj
       end
@@ -16,6 +15,7 @@ module Fern
 
     class_methods do
       def endpoint(name, &block)
+        self.fern ||= {}
         fern[name] = {}
         Endpoint.new(self, name: name, &block)
       end
@@ -24,5 +24,3 @@ module Fern
     end
   end
 end
-
-ActiveSupport.on_load(:action_controller) { include Fern::Api }
