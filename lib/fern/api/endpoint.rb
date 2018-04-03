@@ -12,13 +12,6 @@ module Fern
         @controller.send(:define_method, @name, &block)
       end
 
-      def form(key = nil, klass) # rubocop:disable Style/OptionalArguments
-        @controller.fern[@name][:form] = {
-          key: key,
-          klass: klass
-        }
-      end
-
       def presenter(klass)
         @controller.fern[@name][:presenter] = klass
       end
