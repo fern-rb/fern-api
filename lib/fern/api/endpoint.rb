@@ -11,10 +11,6 @@ module Fern
       def request(&block)
         @controller.send(:define_method, @name, &block)
       end
-
-      def presenter(klass)
-        @controller.fern[@name][:presenter] = klass
-      end
     end
   end
 end
