@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.name        = 'fern-api'
   s.version     = Fern::Api::VERSION
   s.date        = '2017-03-11'
-  s.authors     = ['Kyle Kestell']
-  s.email       = 'kyle@kestell.org'
+  s.authors     = ['Kyle Kestell', 'Ryan Andersen']
+  s.email       = ['kyle@kestell.org', 'itsryanandersen@gmail.com']
   s.summary     = 'Fern API'
   s.description = 'API DSL for Fern.'
   s.homepage    = 'https://github.com/kkestell/fern-api'
@@ -18,8 +18,9 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.3.0'
 
   s.add_development_dependency 'minitest', '~> 5.0'
-  s.add_development_dependency 'rake', '~> 10.0'
+  s.add_development_dependency 'rake', '~> 12.0'
+  s.add_development_dependency 'rubocop', '~> 0.74.0'
 
-  s.add_runtime_dependency 'actionpack', '~> 5.0'
-  s.add_runtime_dependency 'activesupport', '~> 5.0'
+  s.add_runtime_dependency 'actionpack', '>= 5.0'
+  s.add_runtime_dependency 'activesupport', '>= 5.0'
 end
